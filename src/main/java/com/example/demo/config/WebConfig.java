@@ -7,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig {
-
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -16,9 +15,11 @@ public class WebConfig {
                 registry.addMapping("/**")
                     .allowedOrigins(
                         "http://localhost:3000",
-                        "https://hospital-management-system-frontend-orpin.vercel.app/" // for example
+                        "https://hospital-management-system-frontend-orpin.vercel.app"
                     )
-                    .allowedMethods("GET", "POST", "PUT", "DELETE");
+                    .allowedMethods("GET", "POST", "PUT", "DELETE")
+                    .allowedHeaders("*")
+                    .allowCredentials(true); // only if needed
             }
         };
     }
