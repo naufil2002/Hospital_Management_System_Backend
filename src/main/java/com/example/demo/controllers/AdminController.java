@@ -18,8 +18,12 @@ public class AdminController {
     public String login(@RequestBody Map<String, String> loginData) {
         String username = loginData.get("username");
         String password = loginData.get("password");
+
+        System.out.println("Username: " + username + ", Password: " + password); // debug
+        
         boolean isValid = adminService.login(username, password);
         return isValid ? "success" : "fail";
     }
+
 
 }
