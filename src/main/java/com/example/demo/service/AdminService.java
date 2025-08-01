@@ -12,7 +12,10 @@ public class AdminService {
     private AdminRepository adminRepo;
 
     public boolean login(String username, String password) {
+        System.out.println("Login attempt: username=" + username + ", password=" + password);
         Admin admin = adminRepo.findByUsernameAndPassword(username, password);
+        System.out.println("Admin found: " + (admin != null ? admin.getUsername() : "null"));
         return admin != null;
     }
+
 }
