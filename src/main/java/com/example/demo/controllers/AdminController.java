@@ -21,4 +21,5 @@ public class AdminController {
         boolean isValid = adminService.login(username, password);
         return isValid ? "success" : "fail";
     }
+
 }
